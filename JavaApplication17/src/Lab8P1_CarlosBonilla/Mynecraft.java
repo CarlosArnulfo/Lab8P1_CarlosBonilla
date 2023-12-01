@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package javaapplication17;
+package Lab8P1_CarlosBonilla;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -22,7 +22,7 @@ public class Mynecraft {
     int vida = 0;
 
     public void play() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);//menu de opciones
         System.out.println("0: Salir");
         System.out.println("1: Sumar 1 lingote de hierro");
         System.out.println("2: Sumar 1 diamante");
@@ -56,6 +56,7 @@ public class Mynecraft {
                         vida = 8;
                         Pico picoHierro = new Pico("hierro", vida);
                         picos.add(picoHierro);
+                        System.out.println("Se a creado un pico de hierro");//creador de picos de diamante que toma en cuenta los recursos necesarios
                     } else {
                         if (lingoteHierro < 3) {
                             System.out.println("te hacen falta(n) " + (3 - diamante) + " lingotes de hierro");
@@ -72,6 +73,7 @@ public class Mynecraft {
                         palos = (palos - 2);
                         Pico picoDiamante = new Pico("diamante", vida);
                         picos.add(picoDiamante);
+                        System.out.println("se a creado un pico de diamante");//creador de picos de diamante que toma en cuenta los recursos necesarios
                     } else {
                         if (diamante < 3) {
                             System.out.println("te hacen falta(n) " + (3 - diamante) + " diamantes");
@@ -142,8 +144,8 @@ public class Mynecraft {
                     int vidaRestada = 0;
                     int bloquesLista = bloques.size();
                     int picosLista = picos.size();
-                    if ((picosLista >= 1) && (bloquesLista >= 1)) {
-                        System.out.println("elija su bloque para romper");
+                    if ((picosLista >= 1) && (bloquesLista >= 1)) {//solo corro esta parte si tengo almenos un pico y almenos un bloque
+                        System.out.println("elija su bloque para romper");//eleccion de bloque a romper
                         for (int i = 0; i < bloquesLista; i++) {
                             System.out.println(i + ". bloque de " + bloques.get(i));
                         }
@@ -151,8 +153,32 @@ public class Mynecraft {
                         for (int i = 0; i < picosLista; i++) {
                             System.out.println(i + ". pico de " + picos.get(i));
                         }
-                        picoAUsar=sc.nextInt();
+                        picoAUsar=sc.nextInt();//eleccion de pico a usar
                         if (bloques.get(bloqueARomper).equals("obsidiana"));
+                        vidaRestada=(picos.get(picoAUsar).vida-6);
+                        picos.get(picoAUsar).changeVida(vidaRestada);
+                        if(picos.get(picoAUsar).vida<=0){
+                            picos.remove(picoAUsar);
+                        }
+                        else if (bloques.get(bloqueARomper).equals("oro"));
+                        vidaRestada=(picos.get(picoAUsar).vida-4);
+                        picos.get(picoAUsar).changeVida(vidaRestada);
+                        if(picos.get(picoAUsar).vida<=0){
+                            picos.remove(picoAUsar);
+                        }
+                        else if (bloques.get(bloqueARomper).equals("carbon"));
+                        vidaRestada=(picos.get(picoAUsar).vida-2);
+                        picos.get(picoAUsar).changeVida(vidaRestada);
+                        if(picos.get(picoAUsar).vida<=0){
+                            picos.remove(picoAUsar);
+                        }
+                        else{
+                            if (bloquesLista==0)
+                                System.out.println("no tiene bloques para romper");
+                        }
+                            if (picosLista==0){
+                                System.out.println("no tiene picos para usar");
+                            }
                         
                         
                     }

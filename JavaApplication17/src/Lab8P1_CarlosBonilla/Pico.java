@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package javaapplication17;
+package Lab8P1_CarlosBonilla;
 
 /**
  *
@@ -32,7 +32,7 @@ public String getTipo() {
        @Override
        
     public String toString() {
-        return "has creado un pico de "+ this.tipo;
+        return this.tipo;
     }
     public void changeTipo(String material){
     this.tipo=material;
