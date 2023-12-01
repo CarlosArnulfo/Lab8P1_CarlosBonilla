@@ -137,6 +137,9 @@ public class Mynecraft {
 
                     break;
                 case (9):
+                    int picoAUsar = 0;
+                    int bloqueARomper = 0;
+                    int vidaRestada = 0;
                     int bloquesLista = bloques.size();
                     int picosLista = picos.size();
                     if ((picosLista >= 1) && (bloquesLista >= 1)) {
@@ -144,7 +147,14 @@ public class Mynecraft {
                         for (int i = 0; i < bloquesLista; i++) {
                             System.out.println(i + ". bloque de " + bloques.get(i));
                         }
-
+                        bloqueARomper=sc.nextInt();
+                        for (int i = 0; i < picosLista; i++) {
+                            System.out.println(i + ". pico de " + picos.get(i));
+                        }
+                        picoAUsar=sc.nextInt();
+                        if (bloques.get(bloqueARomper).equals("obsidiana"));
+                        
+                        
                     }
                     break;
                 case (10):
@@ -169,6 +179,6 @@ public class Mynecraft {
             System.out.println("9. Romper bloques");
             menu = sc.nextInt();
         } while (menu != 0);
-        System.out.println("SGracias por Jugar");
+        System.out.println("Gracias por Jugar");
     }
 }
