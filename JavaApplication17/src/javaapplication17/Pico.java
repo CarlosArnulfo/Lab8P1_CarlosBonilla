@@ -9,5 +9,35 @@ package javaapplication17;
  * @author lospe
  */
 public class Pico {
+    String tipo;
+    int vida; 
+public Pico(String tipo,int vida){
+    this.tipo=tipo;
+}
+public String getTipo() {
+        return tipo;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
     
+    /*Metodos*/
+
+       @Override
+       
+    public String toString() {
+        return "has creado un pico de "+ this.tipo;
+    }
+    public void changeTipo(String material){
+    this.tipo=material;
+}
+    public void changeVida(int cambioVida){
+    this.vida=cambioVida;
+}
 }
